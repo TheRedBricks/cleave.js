@@ -293,9 +293,15 @@ var Cleave = React.createClass({
         var owner = this,
             { value, options, onKeyDown, onChange, onInit, htmlRef, ...propsToTransfer } = owner.props;
 
+        // Specify type
+        var type = owner.props.type;
+        if (!type) {
+          type = 'text';
+        }
+
         return (
             <input
-                type="text"
+                type={type}
                 ref={htmlRef}
                 value={owner.state.value}
                 onKeyDown={owner.onKeyDown}
